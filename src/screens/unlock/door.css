@@ -1,0 +1,241 @@
+.jamb {
+  --gap: 5px;
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  perspective: 2600px;
+  perspective-origin: 58% 50%;
+}
+.jamb__frame {
+  position: absolute;
+  inset: 0;
+  background:
+    var(--cast),
+    linear-gradient(180deg, var(--steel-850), var(--steel-900));
+  clip-path: polygon(
+    0 0,
+    0 100%,
+    var(--jamb-l) 100%,
+    var(--jamb-l) var(--jamb-y),
+    calc(100% - var(--jamb-r)) var(--jamb-y),
+    calc(100% - var(--jamb-r)) calc(100% - var(--jamb-y)),
+    var(--jamb-l) calc(100% - var(--jamb-y)),
+    var(--jamb-l) 100%,
+    100% 100%,
+    100% 0
+  );
+}
+.jamb__void {
+  position: absolute;
+  inset: var(--jamb-y) var(--jamb-r) var(--jamb-y) var(--jamb-l);
+  background: var(--pit);
+  box-shadow: 0 0 0 1px var(--hi), inset 0 0 0 1px var(--lo);
+}
+
+.jamb__hinge {
+  position: absolute;
+  z-index: 3;
+  left: calc(var(--jamb-l) - 9px);
+  width: 16px;
+  height: 74px;
+  margin-top: -37px;
+  border-radius: 2px;
+  background:
+    repeating-linear-gradient(180deg, transparent 0 23px, rgb(var(--shade) / 0.7) 23px 24px, rgb(var(--spec) / 0.08) 24px 25px),
+    linear-gradient(90deg, var(--steel-900), var(--steel-500) 38%, var(--steel-700) 62%, var(--pit));
+  box-shadow: 0 0 0 1px var(--edge);
+}
+.jamb__hinge i {
+  position: absolute;
+  right: 100%;
+  top: 9px;
+  bottom: 9px;
+  width: 17px;
+  border-radius: 1px 0 0 1px;
+  background:
+    radial-gradient(circle at 50% 22%, var(--pit) 0 1.4px, var(--steel-600) 1.6px 3px, transparent 3.4px),
+    radial-gradient(circle at 50% 78%, var(--pit) 0 1.4px, var(--steel-600) 1.6px 3px, transparent 3.4px),
+    var(--steel-800);
+  box-shadow: var(--engrave-out), 0 0 0 1px var(--edge);
+}
+.jamb__hinge--0 { top: 18%; }
+.jamb__hinge--1 { top: 50%; }
+.jamb__hinge--2 { top: 82%; }
+
+.jamb__keeper {
+  position: absolute;
+  z-index: 1;
+  right: calc(var(--jamb-r) - 16px);
+  width: 16px;
+  height: 22px;
+  margin-top: -11px;
+  background: var(--pit);
+  box-shadow: inset 0 2px 3px rgb(var(--shade) / 0.8), 0 1px 0 var(--hi), 1px 0 0 var(--hi);
+}
+.door__bolt--0 { top: 20%; }
+.door__bolt--1 { top: 50%; }
+.door__bolt--2 { top: 80%; }
+.jamb__keeper { --inset: calc(var(--jamb-y) + var(--gap)); }
+.jamb__keeper--0 { top: calc(var(--inset) + (100% - 2 * var(--inset)) * 0.2); }
+.jamb__keeper--1 { top: 50%; }
+.jamb__keeper--2 { top: calc(var(--inset) + (100% - 2 * var(--inset)) * 0.8); }
+
+.door {
+  position: absolute;
+  z-index: 2;
+  inset: calc(var(--jamb-y) + var(--gap)) calc(var(--jamb-r) + var(--gap)) calc(var(--jamb-y) + var(--gap)) calc(var(--jamb-l) + var(--gap));
+  transform-origin: 0 50%;
+  transform-style: preserve-3d;
+}
+.door__edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  width: 44px;
+  transform-origin: 0 50%;
+  transform: rotateY(90deg);
+  background:
+    radial-gradient(ellipse 9px 11px at 50% 20%, var(--pit) 0 96%, transparent),
+    radial-gradient(ellipse 9px 11px at 50% 50%, var(--pit) 0 96%, transparent),
+    radial-gradient(ellipse 9px 11px at 50% 80%, var(--pit) 0 96%, transparent),
+    linear-gradient(90deg, var(--steel-600), var(--steel-800) 30%, var(--steel-900));
+}
+.door__slab {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: center;
+  column-gap: clamp(var(--s-6), 4vw, var(--s-16));
+  padding: var(--s-6) clamp(134px, 12vw, 160px) var(--s-6) clamp(var(--s-6), 5vw, var(--s-16));
+  border-radius: 3px;
+  background:
+    var(--specular),
+    var(--brushed),
+    linear-gradient(180deg, var(--steel-800), var(--steel-850) 50%, var(--steel-900));
+  box-shadow:
+    inset 0 1px 0 var(--hi-strong),
+    inset 1px 0 0 var(--hi),
+    inset 0 -1px 0 var(--lo),
+    inset -1px 0 0 var(--lo-soft),
+    0 0 0 1px var(--edge);
+  backface-visibility: hidden;
+}
+.door__slab::before {
+  content: "";
+  position: absolute;
+  inset: 11px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px var(--lo), inset 0 0 0 2px rgb(var(--spec) / 0.035), 0 1px 0 rgb(var(--spec) / 0.03);
+  pointer-events: none;
+}
+
+.door__bolt,
+.door__nose {
+  position: absolute;
+  overflow: hidden;
+}
+.door__bolt {
+  right: 22px;
+  width: 96px;
+  height: 20px;
+  margin-top: -10px;
+  border-radius: 2px;
+  background: var(--pit);
+  box-shadow: var(--engrave-in), 0 1px 0 var(--hi);
+}
+.door__nose {
+  left: 100%;
+  width: calc(var(--gap) + 12px);
+  height: 14px;
+  margin-top: -7px;
+}
+.door__bolt-bar {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 44px;
+  width: 100px;
+  border-radius: 1px;
+  background:
+    linear-gradient(90deg, transparent 0 9px, rgb(var(--shade) / 0.5) 9px 10px, rgb(var(--spec) / 0.14) 10px 11px, transparent 11px),
+    linear-gradient(180deg, var(--steel-300), var(--steel-500) 45%, var(--steel-700));
+  box-shadow: 0 0 0 1px var(--edge);
+}
+.door__nose .door__bolt-bar {
+  top: 0;
+  bottom: 0;
+  left: -30px;
+  width: calc(30px + var(--gap) + 11px);
+  background: linear-gradient(180deg, var(--steel-300), var(--steel-500) 45%, var(--steel-700));
+}
+.door[data-bolts="drawn"] .door__bolt-bar {
+  transform: translateX(-38px);
+}
+
+.door__mount {
+  --dial-size: min(400px, 34vw, calc(100vh - var(--faceplate-h) - 2 * var(--jamb-y) - 196px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-8);
+}
+.door__plate {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin: 0;
+  padding: 7px 30px 8px;
+  max-width: min(330px, 100%);
+  border-radius: 1px;
+  background: var(--brushed), linear-gradient(180deg, var(--steel-800), var(--steel-850));
+  box-shadow: var(--engrave-out), 0 0 0 1px var(--edge);
+  font-size: var(--t-xs);
+  font-stretch: var(--wdth-tight);
+  line-height: 1.35;
+  color: var(--steel-400);
+  text-shadow: var(--engrave-text);
+  text-align: center;
+}
+.door__plate::before,
+.door__plate::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, var(--steel-400), var(--steel-700) 60%, var(--steel-900));
+  box-shadow: 0 0 0 1px var(--edge);
+}
+.door__plate::before { left: 10px; }
+.door__plate::after { right: 10px; }
+.door__plate-name {
+  font-size: var(--t-sm);
+  letter-spacing: 0.08em;
+  color: var(--steel-200);
+}
+
+.door__panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-6);
+  width: 100%;
+  max-width: 440px;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--s-2) var(--s-2) var(--s-2) 0;
+  margin-right: calc(-1 * var(--s-2));
+}
+
+@media (max-height: 700px) {
+  .door__mount {
+    gap: var(--s-5);
+  }
+}

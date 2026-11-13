@@ -1,0 +1,28 @@
+[package]
+name = "zpass-core"
+description = "ZPassword vault core: crypto, file format, key slots, data model"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+zeroize.workspace = true
+uuid.workspace = true
+argon2 = { version = "0.5", features = ["zeroize"] }
+chacha20poly1305 = "0.10"
+hkdf = "0.12"
+hmac = "0.12"
+sha1 = "0.10"
+sha2 = "0.10"
+getrandom = "0.3"
+subtle = "2.6"
+data-encoding = "2"
+zxcvbn = "3"
+
+tempfile = "3"
+
+[dev-dependencies]
+proptest = "1"

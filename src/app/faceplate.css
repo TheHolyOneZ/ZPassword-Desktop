@@ -1,0 +1,65 @@
+.faceplate {
+  position: relative;
+  z-index: 60;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(280px, 520px) minmax(220px, 1fr);
+  align-items: center;
+  height: var(--faceplate-h);
+  padding-left: var(--s-4);
+  background: linear-gradient(180deg, var(--steel-850), var(--steel-900));
+  box-shadow: inset 0 1px 0 var(--hi-strong), inset 0 -1px 0 var(--edge), inset 0 -2px 0 rgb(var(--spec) / 0.04);
+}
+.faceplate__id {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-width: 0;
+}
+.faceplate__mark {
+  font-size: var(--t-sm);
+  color: var(--steel-300);
+  letter-spacing: 0.08em;
+  text-shadow: var(--engrave-text);
+}
+.faceplate__title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--steel-50);
+  font-weight: 560;
+  padding-left: var(--s-3);
+  border-left: var(--rule);
+}
+.faceplate__center {
+  display: flex;
+  justify-content: center;
+}
+.faceplate__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--s-1);
+  height: 100%;
+}
+.faceplate__win {
+  display: flex;
+  height: 100%;
+  margin-left: var(--s-2);
+}
+.faceplate__win button {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 100%;
+  color: var(--steel-400);
+  transition: background-color var(--d-fast) linear, color var(--d-fast) linear;
+}
+.faceplate__win button:hover {
+  background: var(--hover);
+  color: var(--steel-50);
+}
+.faceplate__win button.is-close:hover {
+  background: var(--oxide);
+  color: var(--steel-50);
+}

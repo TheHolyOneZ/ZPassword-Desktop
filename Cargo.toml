@@ -1,0 +1,32 @@
+[workspace]
+resolver = "3"
+members = ["crates/zpass-core", "crates/zpass-import", "src-tauri"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "GPL-3.0-only"
+rust-version = "1.89"
+
+[workspace.dependencies]
+zpass-core = { path = "crates/zpass-core" }
+zpass-import = { path = "crates/zpass-import" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+zeroize = { version = "1.8", features = ["derive", "serde"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+panic = "abort"
+strip = true
+
+[profile.dev.package.argon2]
+opt-level = 3
+[profile.dev.package.blake2]
+opt-level = 3
+[profile.dev.package.chacha20poly1305]
+opt-level = 3

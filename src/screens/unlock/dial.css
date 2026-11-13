@@ -1,0 +1,154 @@
+.dial {
+  position: relative;
+  width: var(--dial-size, 400px);
+  aspect-ratio: 1;
+  flex: none;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--lo), 0 3px 0 rgb(var(--shade) / 0.35), 0 -1px 0 var(--hi);
+}
+.dial > svg,
+.dial__sheen,
+.dial__glow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.dial__sheen,
+.dial__glow,
+.dial__top {
+  pointer-events: none;
+}
+
+.dial__edge {
+  stroke: var(--edge);
+  stroke-width: 1;
+}
+.dial__screw {
+  fill: var(--steel-700);
+  stroke: var(--edge);
+  stroke-width: 1;
+}
+.dial__slot {
+  stroke: var(--pit);
+  stroke-width: 1.4;
+}
+.dial__well {
+  fill: var(--pit);
+}
+
+.dial__face {
+  transform-origin: 50% 50%;
+}
+.dial.is-working .dial__face {
+  will-change: transform;
+}
+.dial__disc {
+  fill: var(--steel-800);
+  stroke: var(--edge);
+  stroke-width: 1.5;
+}
+.dial__tick {
+  stroke: var(--steel-400);
+  stroke-width: 1;
+}
+.dial__tick.is-major {
+  stroke: var(--steel-200);
+  stroke-width: 2;
+}
+.dial__num {
+  font-family: var(--font-ui);
+  font-stretch: 125%;
+  font-weight: 620;
+  font-size: 15px;
+  fill: var(--steel-200);
+}
+.dial__step {
+  fill: var(--steel-900);
+  stroke: var(--edge);
+  stroke-width: 1.5;
+}
+.dial__knob {
+  fill: var(--steel-700);
+  stroke: var(--edge);
+  stroke-width: 1.5;
+}
+.dial__knurl {
+  stroke: rgb(var(--shade) / 0.5);
+  stroke-width: 2.2;
+}
+.dial__cap {
+  fill: var(--steel-800);
+  stroke: rgb(var(--shade) / 0.6);
+  stroke-width: 1;
+}
+.dial__pointer {
+  fill: var(--steel-200);
+}
+
+.dial__sheen {
+  --rot: calc((var(--lx, 0.3) - 0.5) * 34deg + (var(--ly, 0.3) - 0.5) * 18deg);
+  inset: 6.75%;
+  width: auto;
+  height: auto;
+  border-radius: 50%;
+  background:
+    linear-gradient(180deg, rgb(var(--spec) / 0.1), transparent 42%, rgb(var(--shade) / 0.34)),
+    conic-gradient(
+      from calc(-38deg + var(--rot)),
+      rgb(var(--spec) / 0) 0deg,
+      rgb(var(--spec) / 0.2) 24deg,
+      rgb(var(--spec) / 0.04) 52deg,
+      rgb(var(--shade) / 0.3) 96deg,
+      rgb(var(--shade) / 0.05) 150deg,
+      rgb(var(--spec) / 0.13) 204deg,
+      rgb(var(--spec) / 0.02) 236deg,
+      rgb(var(--shade) / 0.32) 284deg,
+      rgb(var(--spec) / 0) 360deg
+    );
+}
+.dial__sheen--cap {
+  inset: 28.75%;
+  background:
+    radial-gradient(circle at 50% 50%, rgb(var(--shade) / 0.35) 0 24%, transparent 25%),
+    conic-gradient(
+      from calc(18deg + var(--rot) * 1.6),
+      rgb(var(--spec) / 0) 0deg,
+      rgb(var(--spec) / 0.24) 30deg,
+      rgb(var(--shade) / 0.28) 100deg,
+      rgb(var(--spec) / 0.16) 208deg,
+      rgb(var(--shade) / 0.3) 286deg,
+      rgb(var(--spec) / 0) 360deg
+    );
+  box-shadow: inset 0 1px 0 rgb(var(--spec) / 0.14), inset 0 -1px 0 rgb(var(--shade) / 0.5);
+}
+
+.dial__glow {
+  opacity: 0;
+  background: radial-gradient(circle at 50% 50%, var(--sodium-glow) 0, rgb(255 116 23 / 0.12) 12%, transparent 30%);
+}
+.dial__index {
+  fill: var(--steel-400);
+  stroke: var(--edge);
+  stroke-width: 1;
+  transition: fill var(--d-base) linear;
+}
+.dial.is-working .dial__index {
+  fill: var(--sodium);
+}
+.dial__lamp-bezel {
+  fill: var(--pit);
+  stroke: var(--edge);
+  stroke-width: 2;
+}
+.dial__lamp {
+  fill: var(--lamp-dark);
+}
+.dial__lamp-lit {
+  fill: var(--sodium);
+  opacity: 0;
+}
+.dial__lens {
+  fill: rgb(255 255 255 / 0.28);
+}

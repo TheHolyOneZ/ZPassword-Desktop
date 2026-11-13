@@ -1,0 +1,149 @@
+.welcome .door__panel {
+  max-width: 460px;
+}
+.welcome .unlock__title {
+  font-size: var(--t-xl);
+  line-height: 1.15;
+}
+.welcome__lede {
+  margin: var(--s-3) 0 0;
+  color: var(--steel-300);
+  max-width: 46ch;
+}
+.unlock__form .welcome__lede {
+  margin: 0;
+}
+.welcome__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+.welcome__h2 {
+  margin: 0 0 var(--s-2);
+  font-size: var(--t-sm);
+  font-weight: 540;
+  color: var(--steel-400);
+}
+.welcome__recent ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--rule-soft);
+}
+.welcome__recent li {
+  display: flex;
+  align-items: center;
+  border-bottom: var(--rule-soft);
+}
+.welcome__recent-row {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--s-2) var(--s-2);
+  text-align: left;
+  transition: background-color var(--d-fast) linear;
+}
+.welcome__recent-row:hover:not(:disabled) {
+  background: var(--hover);
+}
+.welcome__recent-row:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.welcome__recent-name {
+  color: var(--steel-50);
+  font-weight: 560;
+}
+.welcome__recent-path {
+  max-width: 100%;
+  font-size: var(--t-xs);
+  color: var(--steel-400);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.welcome__recent-x {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  color: var(--steel-400);
+}
+.welcome__recent-x:hover {
+  color: var(--oxide);
+}
+.welcome__steps {
+  display: flex;
+  gap: var(--s-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--t-sm);
+  color: var(--steel-400);
+}
+.welcome__steps li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.welcome__steps .code {
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--r-control);
+  box-shadow: 0 0 0 1px var(--steel-600);
+  font-size: var(--t-xs);
+}
+.welcome__steps li.is-current {
+  color: var(--steel-50);
+}
+.welcome__steps li.is-current .code {
+  background: var(--sodium);
+  color: var(--steel-1000);
+  box-shadow: none;
+}
+.welcome__steps li.is-done .code {
+  box-shadow: 0 0 0 1px var(--verdigris);
+  color: var(--verdigris);
+}
+.welcome__path {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+}
+.welcome__path .zp-field {
+  flex: 1;
+  min-width: 0;
+}
+.welcome__path > .zp-btn {
+  margin-top: 23px;
+}
+.welcome__nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--s-2);
+}
+.welcome__factor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-4);
+  border-radius: var(--r-plate);
+  background: var(--steel-900);
+  box-shadow: var(--engrave-out), 0 0 0 1px var(--edge);
+  color: var(--steel-300);
+  font-size: var(--t-sm);
+}
+.welcome__factor p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.welcome__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  align-items: center;
+}

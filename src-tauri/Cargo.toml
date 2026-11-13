@@ -1,0 +1,52 @@
+[package]
+name = "zpassword"
+description = "ZPassword — offline password vault"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+name = "zpassword_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+zpass-core.workspace = true
+zpass-import.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+uuid.workspace = true
+zeroize.workspace = true
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-single-instance = "2"
+tauri-plugin-opener = "2"
+arboard = { version = "3", features = ["wayland-data-control"] }
+qrcode = { version = "0.14", default-features = false, features = ["svg"] }
+challenge_response = "0.5"
+gethostname = "1"
+data-encoding = "2"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+libc = "0.2"
+keyring = { version = "3", features = ["sync-secret-service", "crypto-rust"] }
+zbus = { version = "5", default-features = false, features = ["blocking-api"] }
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.61", features = [
+  "Foundation",
+  "Security_Credentials",
+  "Security_Cryptography",
+  "Storage_Streams",
+  "Win32_Foundation",
+  "Win32_System_StationsAndDesktops",
+  "Win32_UI_WindowsAndMessaging",
+  "Win32_System_DataExchange",
+] }
+
+[dev-dependencies]
+tauri = { version = "2", features = ["test"] }
+tempfile = "3"

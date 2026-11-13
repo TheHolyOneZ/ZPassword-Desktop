@@ -1,0 +1,180 @@
+:root {
+  --steel-1000: #0d0f10;
+  --steel-950: #121416;
+  --steel-900: #1a1d20;
+  --steel-850: #1f2226;
+  --steel-800: #24282c;
+  --steel-700: #2e3237;
+  --steel-600: #3a3f45;
+  --steel-500: #565c63;
+  --steel-400: #8b9299;
+  --steel-300: #a3a9af;
+  --steel-200: #c9cdd1;
+  --steel-50: #eef0f1;
+
+  --sodium: #ff7417;
+  --sodium-dim: #b5520f;
+  --sodium-glow: rgb(255 116 23 / 0.35);
+  --sodium-wash: rgb(255 116 23 / 0.08);
+  --oxide: #e0452f;
+  --oxide-wash: rgb(224 69 47 / 0.1);
+  --verdigris: #5fa88a;
+  --verdigris-wash: rgb(95 168 138 / 0.1);
+  --brass: #c9a35a;
+
+  --label-signal: var(--sodium);
+  --label-steel: #8fa3b8;
+  --label-verdigris: var(--verdigris);
+  --label-brass: var(--brass);
+  --label-oxide: var(--oxide);
+  --label-bone: #d9d2c3;
+
+  --spec: 255 255 255;
+  --shade: 0 0 0;
+  --hi: rgb(var(--spec) / 0.07);
+  --hi-strong: rgb(var(--spec) / 0.14);
+  --lo: rgb(var(--shade) / 0.55);
+  --lo-soft: rgb(var(--shade) / 0.3);
+  --edge: var(--steel-1000);
+  --pit: var(--steel-1000);
+  --hover: rgb(var(--spec) / 0.06);
+  --hover-strong: rgb(var(--spec) / 0.1);
+  --sodium-ink: var(--sodium);
+  --on-sodium: #0d0f10;
+  --lamp-dark: #2a2e33;
+  --knob: #f3f4f5;
+  --scrim: rgb(9 10 11 / 0.72);
+
+  --engrave-in: inset 0 1px 0 var(--lo), inset 0 -1px 0 rgb(var(--spec) / 0.035);
+  --engrave-out: inset 0 1px 0 var(--hi), inset 0 -1px 0 rgb(var(--shade) / 0.5);
+  --engrave-text: 0 -1px 0 rgb(var(--shade) / 0.75), 0 1px 0 rgb(var(--spec) / 0.09);
+  --emboss-text: 0 1px 0 rgb(var(--shade) / 0.6);
+  --well: inset 0 2px 3px rgb(var(--shade) / 0.5), 0 0 0 1px var(--steel-700), 0 1px 0 1px var(--hi);
+  --rule: 1px solid var(--steel-600);
+  --rule-soft: 1px solid color-mix(in srgb, var(--steel-600) 55%, transparent);
+  --groove: 0 1px 0 rgb(var(--spec) / 0.045);
+
+  --brushed: none;
+  --cast: none;
+  --lx: 0.3;
+  --specular: linear-gradient(
+    102deg,
+    transparent calc(var(--lx) * 100% - 34%),
+    rgb(var(--spec) / 0.045) calc(var(--lx) * 100% - 6%),
+    rgb(var(--spec) / 0.07) calc(var(--lx) * 100%),
+    rgb(var(--spec) / 0.03) calc(var(--lx) * 100% + 9%),
+    transparent calc(var(--lx) * 100% + 38%)
+  );
+  --plate: var(--specular), var(--brushed), linear-gradient(180deg, var(--steel-800), var(--steel-850));
+  --plate-low: var(--brushed), var(--steel-900);
+
+  --font-ui: "Archivo Variable", "Archivo", "Segoe UI", sans-serif;
+  --font-code: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace;
+  --wdth-plate: 125%;
+  --wdth-body: 100%;
+  --wdth-tight: 78%;
+
+  --t-xs: 11.2px;
+  --t-sm: 12.5px;
+  --t-base: 14px;
+  --t-md: 17.5px;
+  --t-lg: 21.9px;
+  --t-xl: 27.3px;
+  --t-2xl: 34.2px;
+  --t-3xl: 42.7px;
+
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-8: 32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+
+  --r-control: 2px;
+  --r-plate: 4px;
+  --r-sheet: 8px;
+
+  --ease-detent: cubic-bezier(0.2, 0.9, 0.25, 1.15);
+  --ease-clunk: cubic-bezier(0.7, 0, 0.9, 0.6);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
+  --d-fast: 90ms;
+  --d-base: 160ms;
+  --d-slow: 320ms;
+
+  --faceplate-h: 44px;
+  --jamb-l: 34px;
+  --jamb-r: 46px;
+  --jamb-y: 22px;
+  --rail-w: 232px;
+  --ledger-w: 360px;
+}
+
+:root[data-theme="aluminium"] {
+  color-scheme: light;
+  --steel-1000: #f0f2f4;
+  --steel-950: #c3c7cc;
+  --steel-900: #ced2d6;
+  --steel-850: #d6d9dd;
+  --steel-800: #dee1e4;
+  --steel-700: #b7bcc2;
+  --steel-600: #a2a8af;
+  --steel-500: #6f767d;
+  --steel-400: #4f565d;
+  --steel-300: #3c4248;
+  --steel-200: #282d32;
+  --steel-50: #101214;
+
+  --edge: #868c93;
+  --pit: #5f666d;
+  --spec: 255 255 255;
+  --shade: 32 38 46;
+  --hi: rgb(var(--spec) / 0.6);
+  --hi-strong: rgb(var(--spec) / 0.85);
+  --lo: rgb(var(--shade) / 0.3);
+  --lo-soft: rgb(var(--shade) / 0.16);
+  --hover: rgb(var(--shade) / 0.07);
+  --hover-strong: rgb(var(--shade) / 0.12);
+  --lamp-dark: #7b8289;
+  --scrim: rgb(52 58 66 / 0.5);
+
+  --sodium-ink: #8f3b00;
+  --sodium-dim: #b5520f;
+  --sodium-glow: rgb(255 116 23 / 0.45);
+  --sodium-wash: rgb(255 116 23 / 0.16);
+  --oxide: #a82216;
+  --oxide-wash: rgb(168 34 22 / 0.1);
+  --verdigris: #1a6248;
+  --verdigris-wash: rgb(26 98 72 / 0.1);
+  --brass: #74540f;
+  --label-signal: #b34a00;
+  --label-steel: #47607a;
+  --label-bone: #6b6456;
+
+  --engrave-in: inset 0 1px 0 var(--lo), inset 0 -1px 0 rgb(var(--spec) / 0.5);
+  --engrave-out: inset 0 1px 0 var(--hi-strong), inset 0 -1px 0 rgb(var(--shade) / 0.22);
+  --engrave-text: 0 1px 0 rgb(var(--spec) / 0.75);
+  --emboss-text: 0 1px 0 rgb(var(--spec) / 0.6);
+  --well: inset 0 1px 2px rgb(var(--shade) / 0.28), 0 0 0 1px var(--edge), 0 1px 0 1px var(--hi);
+
+  --specular: linear-gradient(
+    102deg,
+    transparent calc(var(--lx) * 100% - 34%),
+    rgb(var(--spec) / 0.3) calc(var(--lx) * 100% - 6%),
+    rgb(var(--spec) / 0.45) calc(var(--lx) * 100%),
+    rgb(var(--spec) / 0.2) calc(var(--lx) * 100% + 9%),
+    transparent calc(var(--lx) * 100% + 38%)
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --d-fast: 0ms;
+    --d-base: 0ms;
+    --d-slow: 0ms;
+  }
+}

@@ -1,0 +1,92 @@
+.strength {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--s-4);
+}
+.tumbler {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 11px);
+  gap: 9px;
+  height: 36px;
+  padding: 0 11px;
+  border-radius: var(--r-control);
+  background: var(--steel-1000);
+  box-shadow: inset 0 2px 3px rgb(var(--shade) / 0.5), 0 0 0 1px var(--steel-700), 0 1px 0 1px var(--hi);
+  overflow: hidden;
+}
+.tumbler::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 17px;
+  height: 2px;
+  background: var(--steel-600);
+  mix-blend-mode: lighten;
+}
+.tumbler__pin {
+  position: relative;
+  background: rgb(var(--spec) / 0.03);
+}
+.tumbler__pin:nth-child(1) { --drop: 7px; }
+.tumbler__pin:nth-child(2) { --drop: 11px; }
+.tumbler__pin:nth-child(3) { --drop: 5px; }
+.tumbler__pin:nth-child(4) { --drop: 9px; }
+.tumbler__pin:nth-child(5) { --drop: 12px; }
+.tumbler__stack {
+  position: absolute;
+  inset: 0;
+  transform: translateY(var(--drop));
+  transition: transform var(--d-base) var(--ease-detent);
+  transition-delay: calc(var(--i) * 40ms);
+}
+.tumbler__stack::before,
+.tumbler__stack::after {
+  content: "";
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  border-radius: 1px;
+}
+.tumbler__stack::before {
+  top: -8px;
+  height: 25px;
+  background: linear-gradient(90deg, var(--steel-500), var(--steel-300) 40%, var(--steel-500));
+}
+.tumbler__stack::after {
+  top: 19px;
+  height: 14px;
+  background: linear-gradient(90deg, var(--steel-600), var(--steel-400) 40%, var(--steel-600));
+  transition: background-color var(--d-base) linear;
+  transition-delay: calc(var(--i) * 40ms + 80ms);
+}
+.tumbler__pin.is-set .tumbler__stack {
+  transform: none;
+}
+.strength[data-score="0"] .is-set .tumbler__stack::after,
+.strength[data-score="1"] .is-set .tumbler__stack::after {
+  background: var(--oxide);
+}
+.strength[data-score="2"] .is-set .tumbler__stack::after {
+  background: var(--brass);
+}
+.strength[data-score="3"] .is-set .tumbler__stack::after,
+.strength[data-score="4"] .is-set .tumbler__stack::after {
+  background: var(--verdigris);
+}
+.strength__text {
+  margin: 0;
+  font-size: var(--t-sm);
+  line-height: 1.35;
+  color: var(--steel-400);
+}
+.strength__text strong {
+  color: var(--steel-50);
+  font-weight: 560;
+}
+.strength__warn {
+  display: block;
+  color: var(--brass);
+}

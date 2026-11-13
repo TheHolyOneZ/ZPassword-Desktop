@@ -1,0 +1,85 @@
+.unlock__title {
+  margin: 0;
+  font-size: var(--t-2xl);
+  line-height: 1.1;
+  color: var(--steel-50);
+  text-shadow: var(--engrave-text);
+  overflow-wrap: anywhere;
+}
+.unlock__path {
+  margin: var(--s-2) 0 0;
+  font-size: var(--t-xs);
+  color: var(--steel-400);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.unlock__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+.unlock__submit {
+  align-self: flex-start;
+  min-width: 180px;
+}
+.unlock__factor {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  margin: 0;
+  border-radius: var(--r-control);
+  border: 1px dashed var(--steel-600);
+  color: var(--steel-300);
+  font-size: var(--t-sm);
+  text-align: left;
+}
+.unlock__factor.is-set {
+  border-style: solid;
+  border-color: var(--verdigris);
+  color: var(--steel-50);
+}
+.unlock__factor.is-static {
+  border-style: solid;
+  border-color: var(--steel-700);
+}
+.unlock__device {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  color: var(--steel-300);
+}
+.unlock__device p {
+  margin: 0;
+}
+.unlock__questions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+.unlock__methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1) var(--s-4);
+  padding-top: var(--s-4);
+  border-top: var(--rule-soft);
+}
+.unlock__methods button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: var(--s-1) 0;
+  color: var(--steel-300);
+  font-size: var(--t-sm);
+}
+.unlock__methods button:hover {
+  color: var(--sodium);
+}
+.unlock__note {
+  font-size: var(--t-sm);
+  color: var(--steel-400);
+}
+.unlock__foot {
+  margin-left: calc(-1 * var(--s-3));
+}

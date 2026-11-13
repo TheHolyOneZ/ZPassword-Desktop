@@ -1,0 +1,21 @@
+[package]
+name = "zpass-import"
+description = "Import/export adapters for ZPassword"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+zpass-core.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+uuid.workspace = true
+zeroize.workspace = true
+csv = "1"
+keepass = "0.17"
+data-encoding = "2"
+
+[dev-dependencies]
+tempfile = "3"
+keepass = { version = "0.17", features = ["save_kdbx4"] }
